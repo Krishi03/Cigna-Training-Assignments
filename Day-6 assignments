@@ -13,7 +13,7 @@
     <center>
         <br>
         <h3>This is a secure 128-bit SSL encrypted payment. You're safe!</h3>
-        <form action="transaction.php">
+        <form action="transaction.php" method="post">
             <input  type="radio" id="r1"  name="r1"  value="Credit Card"  />  Credit card(Visa, MasterCard)
             <input  type="radio" id="r1"  name="r1"  value="Paypal"  />  Paypal
 
@@ -76,7 +76,7 @@
     <h1>WELCOME TO ITALIAN PIZZA!</h1>
     <p>We deliver pizza in 40 minutes max. If not - Pizza's on us!</p>
 
-    <form action="#" method="post">
+    <form action="pizza_form.php" method="post">
       <fieldset>
         <legend>Contact Information</legend>
 
