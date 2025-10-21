@@ -1,0 +1,128 @@
+---------credit card form ----------------------------------------------
+
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Credit card form</title>
+    
+</head>
+<body>
+    <fieldset>
+        <legend>Credit card form</legend>
+    <center>
+        <br>
+        <h3>This is a secure 128-bit SSL encrypted payment. You're safe!</h3>
+        <form action="transaction.php">
+            <input  type="radio" id="r1"  name="r1"  value="Credit Card"  />  Credit card(Visa, MasterCard)
+            <input  type="radio" id="r1"  name="r1"  value="Paypal"  />  Paypal
+
+           <br><br> Credit card Number 
+            <input autofocus type="number" id="n1" name="n1" required> &nbsp;
+            Expiration Date  
+						<select  name="Month"  id="Month">
+							<option>Jan</option>
+							<option>Feb</option>
+							<option >Mar</option>
+							<option>April</option>
+							<option>May </option>
+                            <option>June</option>
+                            <option>July</option>
+                            <option>Aug</option>
+                            <option>Sept</option>
+                            <option>Oct</option>
+                            <option>Nov</option>
+                            <option>Dec</option>
+						</select>
+                        <select  name="Year"  id="Year">
+							<option>2025</option>
+							<option>2026</option>
+							<option >2027</option>
+							<option>2028</option>
+							<option>2029</option>
+                            <option>2030</option>
+                            <option>2031</option>
+                            <option>2032</option>
+                            <option>2033</option>
+                            <option>2034</option>
+                            <option>2035</option>
+                            <option>2036</option>
+						</select>
+						<br/><br/>
+            CVV/CVC 
+						<input type="number" id="t2" name="t2" required>
+            <br><br>
+            Full name on card : <input type="text" id="t3" name="t3" required>
+
+            <h3>You will be charged $29 every month</h3>
+        </form>
+    </center>
+    </fieldset>
+    
+    
+</body>
+</html>
+
+
+------------------------Pizza form-------------------------------------------
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Pizza Order Form </title>
+  </head>
+  <body>
+    <h1>WELCOME TO ITALIAN PIZZA!</h1>
+    <p>We deliver pizza in 40 minutes max. If not - Pizza's on us!</p>
+
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Contact Information</legend>
+
+        <label for="email">Email</label><br>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label>Phone</label><br>
+        <input type="tel" name="phone_area" placeholder="Area"> 
+        <input type="tel" name="phone_local1" placeholder="Local"> 
+        <input type="tel" name="phone_local2" placeholder="Local"><br>
+      </fieldset>
+
+      <br>
+      <fieldset>
+        <legend>Order</legend>
+
+        <label for="slices">Number of slices</label><br>
+        <input type="number" id="slices" name="slices" min="1"><br><br>
+
+        <div>
+          <p>Pizza Size</p>
+          <label><input type="radio" name="size" value="8" checked> 8-inch</label>
+          <label><input type="radio" name="size" value="10"> 10-inch</label>
+          <label><input type="radio" name="size" value="12"> 12-inch</label>
+          <label><input type="radio" name="size" value="14"> 14-inch</label>
+        </div>
+
+        <br>
+        <div>
+          <p>Toppings</p>
+          <label><input type="checkbox" name="topping" value="pepperoni"> Pepperoni</label>
+          <label><input type="checkbox" name="topping" value="onions"> Onions</label>
+          <label><input type="checkbox" name="topping" value="mushrooms"> Mushrooms</label>
+          <label><input type="checkbox" name="topping" value="sausage"> Sausage</label>
+        </div>
+      </fieldset>
+
+      <br>
+      <div>
+        <label><input type="checkbox" name="terms" required> I agree to the TERMS AND CONDITIONS</label>
+      </div>
+
+      <br>
+      <div>
+        <button type="submit">Order Now</button>
+      </div>
+    </form>
+  </body>
+</html>
