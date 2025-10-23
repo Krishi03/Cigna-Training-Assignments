@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Functions: Average, Power, Word Count</title>
+    <style>
+      body{font-family:Arial,Helvetica,sans-serif;padding:24px;background:#f7f7f8}
+      .card{background:white;padding:16px;border-radius:6px;max-width:700px;margin:12px auto;border:1px solid #e6e6e6}
+      h2{margin-top:0}
+      label{display:block;margin-top:8px}
+      input[type='number'], input[type='text']{padding:8px;width:100%;box-sizing:border-box;margin-top:6px}
+      button{margin-top:10px;padding:8px 12px}
+      .result{margin-top:12px;padding:8px;background:#f1f8ff;border:1px solid #cfe8ff;border-radius:4px}
+      .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+      @media(max-width:520px){.row{grid-template-columns:1fr}}
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Average Calculator</h2>
+      <label for="totalMarks">Total Marks</label>
+      <input id="totalMarks" type="number" min="0" placeholder="Enter total marks">
+
+      <label for="numSubjects">Number of Subjects</label>
+      <input id="numSubjects" type="number" min="1" placeholder="Enter number of subjects">
+
+      <button id="avgBtn">Calculate Average</button>
+      <div id="avgResult" class="result" aria-live="polite"></div>
+    </div>
+
+    <div class="card">
+      <h2>Power Calculator (x ^ y)</h2>
+      <div class="row">
+        <div>
+          <label for="base">Base (x)</label>
+          <input id="base" type="number" placeholder="Enter base (x)">
+        </div>
+        <div>
+          <label for="exp">Exponent (y)</label>
+          <input id="exp" type="number" placeholder="Enter exponent (y)">
+        </div>
+      </div>
+      <button id="powBtn">Compute Power</button>
+      <div id="powResult" class="result" aria-live="polite"></div>
+    </div>
+
+    <div class="card">
+      <h2>Word Count</h2>
+      <label for="textInput">Enter text</label>
+      <input id="textInput" type="text" placeholder="Type or paste your text here">
+      <button id="countBtn">Count Words</button>
+      <div id="countResult" class="result" aria-live="polite"></div>
+    </div>
+
+    <script>
+  // Simplified functions: logic and UI combined
+
+  // Calculate average and print result
+  function calcAverage() {
+    const totalMarks = parseFloat(document.getElementById('totalMarks').value) || 0;
+    const numSubjects = parseInt(document.getElementById('numSubjects').value, 10);
+    const resultElement = document.getElementById('avgResult');
+
+    if (!numSubjects || numSubjects <= 0) {
+      resultElement.textContent = 'Please enter a valid number of subjects (>=1).';
+      return;
+    }
+
+    const average = totalMarks / numSubjects;
+    resultElement.textContent = `Average = ${average.toFixed(2)}`;
+  }
+
+  function computePower() {
+    const base = parseFloat(document.getElementById('base').value) || 0;
+    const exponent = parseFloat(document.getElementById('exp').value) || 0;
+    const resultElement = document.getElementById('powResult');
+
+    const power = Math.pow(base, exponent);
+    resultElement.textContent = `Result: ${power}`;
+  }
+
+  function countWords() {
+    const text = document.getElementById('textInput').value || '';
+    const resultElement = document.getElementById('countResult');
+
+    const wordCount = text.trim().split(/\s+/).filter(word => word.length > 0).length;
+    resultElement.textContent = `Word count: ${wordCount}`;
+  }
+
+  document.getElementById('avgBtn').addEventListener('click', calcAverage);
+  document.getElementById('powBtn').addEventListener('click', computePower);
+  document.getElementById('countBtn').addEventListener('click', countWords);
+</script>
+  </body>
+</html>
