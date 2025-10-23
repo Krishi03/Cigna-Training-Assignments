@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>
+            Product discount 
+        </title>
+    </head>
+    <body>
+        <h1><center>Meal checkout</center></h1>
+        <fieldset>
+        <label for="pname">Meal base price:</label>
+        <input type="number" id="pname" name="pname"><br><br>
+
+         <button id="calculateBtn" onclick="checkDetails()">Calculate</button>
+          <p id="info"></p>
+        </fieldset>
+
+        <script>
+            function checkDetails(){
+                const base=parseFloat(document.getElementById("pname").value);                                
+
+                Calc=document.getElementById("calculateBtn");
+
+                if(!confirm("Do you want to continue?")){
+                    return;
+                }
+
+                let total=0;
+                let tip=0;
+                let tax=0;
+                tip=0.10*base;
+                tax=0.08*base;
+                total=Math.round(base+tip+tax);
+
+                document.getElementById("info").innerHTML=`Tip=${tip} <br> Tax= ${tax} <br> Total = ${total}`;
+            }
+        </script>
+    </body>
+</html>
