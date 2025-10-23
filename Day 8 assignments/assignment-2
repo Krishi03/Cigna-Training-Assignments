@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>
+            Product discount 
+        </title>
+    </head>
+    <body>
+        <h1><center>Product checkout</center></h1>
+        <fieldset>
+        <label for="pname">Product Name:</label>
+        <input type="text" id="pname" name="pname"><br><br>
+
+        <label for="unit">Unit Price:</label>
+        <input type="number" id="unit" name="unit" /><br><br> 
+
+        <label for="qty">Quantity:</label>
+        <input type="number" id="qty" name="qty" /><br><br> 
+
+         <button id="calculateBtn" onclick="checkDetails()">Calculate</button>
+          <p id="info"></p>
+        </fieldset>
+
+        <script>
+            function checkDetails(){
+                a=document.getElementById("unit").value;
+                b=document.getElementById("qty").value;
+
+                Calc=document.getElementById("calculateBtn");
+
+                if(!confirm("Do you want to continue?")){
+                    return;
+                }
+
+                let discount=0;
+                if(b>10){
+                    discount=0.10;
+                }
+                else if(b>15){
+                    discount=0.15;
+                }
+                else{
+                    discount=0.20;
+                }
+
+                let discountAmount=0;
+                let finalAmount=0;
+                finalAmount=a*b;
+                discountAmount=discount*finalAmount;
+                let total=0;
+                total=finalAmount-discountAmount;
+
+                document.getElementById("info").innerHTML=`Total = ${total}`;
+            }
+        </script>
+    </body>
+</html>
