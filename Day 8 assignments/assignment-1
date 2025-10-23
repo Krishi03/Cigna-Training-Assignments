@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript Basics</h1>
+    <hr/>
+
+    <fieldset>
+        <legend>User Information</legend>
+        <label for="uname">User Name:</label>
+        <input type="text" id="uname" name="uname"><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" /><br><br> 
+
+         <button id="loginBtn" onclick="checkUserDetails()">Login</button>
+          <p id="info"></p>
+    </fieldset>
+        
+    
+   
+
+    <hr/>
+    <footer>Copyright © 2025 JavaScript Basics</footer>
+    
+    <script>     
+      let wrongAttempts=0; 
+      function checkUserDetails() {
+       
+        const uname = document.getElementById("uname").value;
+        const password = document.getElementById("password").value;
+        const info = document.getElementById("info");
+        const loginBtn = document.getElementById("loginBtn");
+
+        // If already reached max attempts, ensure button stays disabled and inform user
+        if (wrongAttempts >= 3) {
+          loginBtn.disabled = true;
+          alert('Login is disabled after too many failed attempts.');
+          return;
+        }
+
+        if (uname === "admin" && password === "admin123") {
+          info.innerText = `Welcome ${uname}`;
+          info.style.backgroundColor = "Green";
+          info.style.color = "White";
+          // reset attempts on successful login
+          wrongAttempts = 0;
+        } else {
+          wrongAttempts++;
+          info.innerText = `Invalid User Id or Password`;
+          info.style.backgroundColor = "Red";
+          info.style.color = "White";
+
+          if (checkUserDetails.wrongAttempts >= 3) {
+            alert('You have entered a wrong password 3 times. Login has been disabled.');
+            loginBtn.disabled = true;
+            loginBtn.title = 'Disabled after 3 failed attempts';
+          }
+        }
+      }
+
+    </script>
+
+     
+
+</body>
+</html>
