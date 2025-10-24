@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>    
+</head>
+<body>
+    <h1>Advanced JavaScript - ES6 (Array of Objects)</h1>
+    <hr/>
+
+    <label for="courseFilter">Filter by Course:</label>
+    <input type="text" id="courseFilter" placeholder="Enter course name">
+    <button onclick="filterByCourse()">Filter Students</button>
+    <hr/>
+
+    <table id="studentsTable" border="1" style="width:100%; border-collapse:collapse; text-align:left;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Course</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be dynamically added here -->
+        </tbody>
+    </table>
+
+    <hr/>
+
+    <footer>
+        <mark>Note: Check the console window to see the result.</mark>
+    </footer>
+
+    <script>
+        const studentsArray = [
+            { id: 10256, name: "Scott", course: "React" },
+            { id: 10257, name: "Angela", course: "Angular" },
+            { id: 10258, name: "Dwight", course: "Vue" },
+            { id: 10259, name: "Andy", course: "Node" },
+            { id: 10260, name: "Jim", course: "Express" },
+        ];
+
+        function button1Click() {
+            displayStudents(studentsArray);
+        }
+
+        function filterByCourse() {
+            const courseName = document.getElementById("courseFilter").value.trim();
+            if (!courseName) {
+                alert("Please enter a course name to filter.");
+                return;
+            }
+
+            const filteredStudents = studentsArray.filter(student => student.course.toLowerCase() === courseName.toLowerCase());
+            displayStudents(filteredStudents);
+        }
+
+        function displayStudents(students) {
+            let tableBody = document.querySelector("#studentsTable tbody");
+            tableBody.innerHTML = ""; // Clear existing rows
+
+            for (let student of students) {
+                let row = `<tr>
+                    <td>${student.id}</td>
+                    <td>${student.name}</td>
+                    <td>${student.course}</td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            }
+        }
+    </script>
+</body>
+</html>
