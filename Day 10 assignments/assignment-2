@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Table</title>
+    <style>
+        .alternate-row {
+            background-color: #f30808;
+        }
+    </style>
+</head>
+<body>
+    <h3>Employee Data</h3>
+    <table id="employeeTable" border="1" style="width: 50%; text-align: left;">
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Department</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>John Doe</td>
+                <td>HR</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jane Smith</td>
+                <td>Finance</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Emily Johnson</td>
+                <td>IT</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Michael Brown</td>
+                <td>Marketing</td>
+            </tr>
+        </tbody>
+    </table>
+    <br/>
+    <button id="applyStylesButton">Apply Styles</button>
+
+    <script>
+        document.getElementById("applyStylesButton").addEventListener("click", function() {
+            const rows = document.querySelectorAll("#employeeTable tbody tr");
+            rows.forEach((row, index) => {
+                if (index % 2 === 1) { // Apply style to alternate rows (1-based index)
+                    row.classList.add("alternate-row");
+                } else {
+                    row.classList.remove("alternate-row");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
