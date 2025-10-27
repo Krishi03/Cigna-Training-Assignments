@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <style>
+        #productSection {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h3>Product List</h3>
+    <section id="productSection">
+        <!-- Products will be added here dynamically -->
+    </section>
+    <br/>
+    <button id="addProductButton">Add Product</button>
+
+<script>
+    const products = [
+        {
+            name: "Mouse",
+            description: "Description for Product 1",
+            image: "https://via.placeholder.com/150/0000FF/808080?text=Product+1"
+        },
+        {
+            name: "Charger",
+            description: "Description for Product 2",
+            image: "https://via.placeholder.com/150/FF0000/FFFFFF?text=Product+2"
+        },
+        {
+            name: "Tabla",
+            description: "Description for Product 3",
+            image: "https://via.placeholder.com/150/00FF00/000000?text=Product+3"
+        }
+    ];
+
+    let productIndex = 0;
+
+    document.getElementById("addProductButton").addEventListener("click", function() {
+        if (productIndex < products.length) {
+            const product = products[productIndex];
+
+   
+            const productDiv = document.createElement("div");
+            productDiv.className = "product";
+
+    
+            const img = document.createElement("img");
+            img.src = product.image;
+            img.alt = product.name;
+            productDiv.appendChild(img);
+
+  
+            const productName = document.createElement("span");
+            productName.textContent = product.name;
+            productDiv.appendChild(productName);
+
+            // Create and append a paragraph for product description
+            const productDescription = document.createElement("p");
+            productDescription.textContent = product.description;
+            productDiv.appendChild(productDescription);
+
+            // Append the product div to the section
+            document.getElementById("productSection").appendChild(productDiv);
+
+            productIndex++;
+        } else {
+            alert("No more products to add!");
+        }
+    });
+</script>
+</body>
+</html>
